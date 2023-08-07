@@ -24,9 +24,12 @@ function App() {
             status: 'Ожидает'
         };
         setTasks([...tasks, task]);
+        setSelectedTask(task);
     }
 
     const deleteTask = (id) => {
+        if (selectedTask.id === id)
+            setSelectedTask(null)
         setTasks(tasks.filter((task) => task.id !== id))
     }
 
