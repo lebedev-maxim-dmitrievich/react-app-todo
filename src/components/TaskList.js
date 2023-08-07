@@ -1,6 +1,7 @@
 import React from "react";
 
 function TaskList(props) {
+
     return (
         <div onClick={()=>{
             props.onTaskClick(props.task)
@@ -8,6 +9,10 @@ function TaskList(props) {
             <p>{props.task.id}. {props.task.title}</p>
             <p>{props.task.body}</p>
             <p>{props.task.status}</p>
+
+            <button onClick={()=>{
+                props.onDelete(props.task.id)
+            }}>Удалить заметку</button>
         </div>
     );
 }
