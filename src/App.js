@@ -24,7 +24,9 @@ function App() {
             status: 'Ожидает'
         };
         setTasks([...tasks, task]);
-        setSelectedTask(task);
+
+        if (selectedTask == null)
+            setSelectedTask(task)
     }
 
     const deleteTask = (id) => {
@@ -32,6 +34,13 @@ function App() {
         if (selectedTask == null || selectedTask.id === id)
             setSelectedTask(null)
     }
+
+    const updateTask = (updatedTask) => {
+        setSelectedTask(updatedTask);
+        setTasks((prevTasks) =>
+            prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+        );
+      };
 
     const handleTaskClick = (task) => {
         setSelectedTask(task);
@@ -60,7 +69,7 @@ function App() {
             
             <h1>Выбранная заметка</h1>
             <div>
-                <SelectedTask task={selectedTask} />
+                <SelectedTask task={selectedTask} onUpdateTask={updateTask} />
             </div>
         </div>
     );
