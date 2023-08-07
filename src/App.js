@@ -47,31 +47,31 @@ function App() {
     };
     
     return (
+      <div>
+        <h1>Список заметок</h1>
+
+        <button onClick={addTask}>Добавить новую заметку</button>
+
+        <aside>
+          {tasks.length === 0 ? (
+            <p>Заметок нет</p>
+          ) : (
+            tasks.map((task) => (
+              <TaskList
+                key={task.id}
+                task={task}
+                onTaskClick={handleTaskClick} // Передаем обработчик клика
+                onDelete={deleteTask}
+              />
+            ))
+          )}
+        </aside>
+
+        <h1>Выбранная заметка</h1>
         <div>
-            <h1>Список заметок</h1>
-
-            <button onClick={addTask}>Добавить новую заметку</button>
-
-            <aside>
-                {tasks.length === 0 ? (
-                    <p>Заметок нет</p>
-                ) : (
-                    tasks.map((task) => (
-                        <TaskList
-                        key={task.id}
-                        task={task}
-                        onTaskClick={(handleTaskClick)} // Передаем обработчик клика
-                        onDelete={(deleteTask)}
-                    />
-                    ))
-                )}
-            </aside>
-            
-            <h1>Выбранная заметка</h1>
-            <div>
-                <SelectedTask task={selectedTask} onUpdateTask={updateTask} />
-            </div>
+          <SelectedTask task={selectedTask} onUpdateTask={updateTask} />
         </div>
+      </div>
     );
 }
 
