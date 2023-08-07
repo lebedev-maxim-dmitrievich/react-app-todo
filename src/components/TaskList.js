@@ -2,13 +2,12 @@ import React from "react";
 
 function TaskList(props) {
   return (
-    <div
+    <div className="task"
       onClick={() => {
         props.onTaskClick(props.task);
       }}
     >
-      <p>{props.task.title}</p>
-      <p>{props.task.body}</p>
+      <h3>{props.task.title}</h3>
       <p>{props.task.status}</p>
 
       <button

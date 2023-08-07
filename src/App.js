@@ -47,12 +47,10 @@ function App() {
     };
     
     return (
-      <div>
+      <div className="container">
+        <div className="sidebar">
         <h1>Список заметок</h1>
-
         <button onClick={addTask}>Добавить новую заметку</button>
-
-        <aside>
           {tasks.length === 0 ? (
             <p>Заметок нет</p>
           ) : (
@@ -65,10 +63,11 @@ function App() {
               />
             ))
           )}
-        </aside>
+        </div>
 
-        <h1>Выбранная заметка</h1>
-        <div>
+        
+        <div className="main-container">
+            <h1>Выбранная заметка</h1>
           <SelectedTask task={selectedTask} onUpdateTask={updateTask} />
         </div>
       </div>
