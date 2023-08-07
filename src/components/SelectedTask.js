@@ -5,7 +5,7 @@ function SelectedTask(props) {
     <div>
       {props.task ? (
         <div>
-          <p>{props.task.id}. {props.task.title}</p>
+          <p>{props.task.title}</p>
           <p>{props.task.body}</p>
           <p>{props.task.status}</p>
         </div>

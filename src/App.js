@@ -4,9 +4,9 @@ import SelectedTask from "./components/SelectedTask";
 
 function App() {
     const [tasks, setTasks] = useState([
-        {id: 1, title: 'Заголовок', body: 'Текст', status: 'Ожидает'},
-        {id: 2, title: 'Заголовок', body: 'Текст', status: 'Ожидает'},
-        {id: 3, title: 'Заголовок', body: 'Текст', status: 'Ожидает'},
+        {id: 1, title: 'Купить хлеба', body: 'Текст', status: 'Ожидает'},
+        {id: 2, title: 'Забрать кота', body: 'Текст', status: 'Ожидает'},
+        {id: 3, title: 'Сделать программу', body: 'Текст', status: 'Ожидает'},
     ])
 
     const [selectedTask, setSelectedTask] = useState(null);
@@ -28,9 +28,9 @@ function App() {
     }
 
     const deleteTask = (id) => {
-        if (selectedTask.id === id)
-            setSelectedTask(null)
         setTasks(tasks.filter((task) => task.id !== id))
+        if (selectedTask == null || selectedTask.id === id)
+            setSelectedTask(null)
     }
 
     const handleTaskClick = (task) => {
