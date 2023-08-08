@@ -63,3 +63,9 @@
     background-color: #999;
     border-radius: 10px;
 }
+
+.task h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
