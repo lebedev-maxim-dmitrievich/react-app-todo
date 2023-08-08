@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import TaskList from "./components/TaskList";
 import SelectedTask from "./components/SelectedTask";
 
+
 function App() {
     const [tasks, setTasks] = useState([
         {id: 1, title: 'Купить хлеба', body: 'Текст', status: 'Ожидает'},

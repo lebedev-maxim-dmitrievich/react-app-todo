@@ -1,6 +1,12 @@
 import React from "react";
 
 function TaskList(props) {
+  let taskColor = 'gray'
+  if (props.task.status === 'В процессе')
+    taskColor = 'blue'
+  else if (props.task.status === 'Выполнена')
+    taskColor = 'green'
+
   return (
     <div className="task"
       onClick={() => {
@@ -8,7 +14,7 @@ function TaskList(props) {
       }}
     >
       <h3>{props.task.title}</h3>
-      <p>{props.task.status}</p>
+      <p style={{color: taskColor}}>{props.task.status}</p>
 
       <button
         onClick={(event) => {
@@ -23,3 +29,7 @@ function TaskList(props) {
 }
 
 export default TaskList;
+
+
+        
+          
