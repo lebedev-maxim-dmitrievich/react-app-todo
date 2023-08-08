@@ -21,13 +21,22 @@ function SelectedTask(props) {
         value={task.title}
         onChange={handleInputChange}
       />
-      <select className="status" name="status" value={task.status} onChange={handleInputChange}>
+      <select
+        className="status"
+        name="status"
+        value={task.status}
+        onChange={handleInputChange}
+      >
         <option value="Ожидает">Ожидает</option>
         <option value="В процессе">В процессе</option>
         <option value="Выполнена">Выполнена</option>
       </select>
 
-      <textarea name="body" value={task.body} onChange={handleInputChange} />
+      <textarea
+        name="body"
+        value={task.body}
+        onChange={handleInputChange}
+      />
     </div>
   );
 }
