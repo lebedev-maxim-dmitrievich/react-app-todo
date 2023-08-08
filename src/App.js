@@ -12,6 +12,8 @@ function App() {
 
     const [selectedTask, setSelectedTask] = useState(null);
 
+    const [searchTerm, setSearchTerm] = useState("");
+
     const addTask = () => {
         let newTaskId = 1
 
@@ -46,16 +48,26 @@ function App() {
     const handleTaskClick = (task) => {
         setSelectedTask(task);
     };
+
+    const filteredTasks = tasks.filter((task) =>
+      task.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     
     return (
       <div className="container">
         <div className="sidebar">
         <h1>Список заметок</h1>
+        <input
+          type="text"
+          placeholder="Поиск по заголовку..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
         <button onClick={addTask}>Добавить новую заметку</button>
           {tasks.length === 0 ? (
             <p>Заметок нет</p>
           ) : (
-            tasks.map((task) => (
+            filteredTasks.map((task) => (
               <TaskList
                 key={task.id}
                 task={task}
