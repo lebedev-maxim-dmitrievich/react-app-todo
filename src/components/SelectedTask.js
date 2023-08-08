@@ -1,12 +1,20 @@
+//Импорт библиотек 
 import React from "react";
 
 function SelectedTask(props) {
+  /*
+    Дочерний функциональный компонент, который отвечает за отображение и возможность редактировать: заголовка, текста, статуса задачи
+  */
+
+  // Копия объекта task, которые передается с props
   const { task, onUpdateTask } = props;
 
+  //  Если задача не выбрана, ничего не отображаем
   if (!task) {
     return <p>Заметка не выбрана</p>;
   }
 
+  //  Обработчик событий, передает изменения в полях в родительский компонент
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     onUpdateTask({ ...task, [name]: value });
@@ -41,4 +49,5 @@ function SelectedTask(props) {
   );
 }
 
+//Экспорт компонента для его импорта в других компонентах
 export default SelectedTask;
